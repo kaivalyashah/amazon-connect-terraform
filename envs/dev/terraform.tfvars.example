@@ -1,0 +1,3 @@
+aws_region             = "ca-central-1"
+environment            = "dev"
+connect_instance_alias = "kaivalya-connect-dev"
