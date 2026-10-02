@@ -10,3 +10,12 @@ module "connect_instance" {
   contact_lens_enabled      = true
   contact_flow_logs_enabled = true
 }
+
+module "queue_routing" {
+  source = "../../modules/queue-routing"
+
+  instance_arn            = module.connect_instance.instance_arn
+  hours_of_operation_name = "Kaivalya Business Hours"
+  time_zone               = "America/Toronto"
+  queue_name              = "Kaivalya Customer Service"
+}
