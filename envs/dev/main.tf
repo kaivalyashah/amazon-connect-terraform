@@ -18,4 +18,5 @@ module "queue_routing" {
   hours_of_operation_name = "Kaivalya Business Hours"
   time_zone               = "America/Toronto"
   queue_name              = "Kaivalya Customer Service"
+  routing_profile_name    = "Kaivalya Customer Service Profile"
 }
