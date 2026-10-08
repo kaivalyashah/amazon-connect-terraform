@@ -20,3 +20,25 @@ module "queue_routing" {
   queue_name              = "Kaivalya Customer Service"
   routing_profile_name    = "Kaivalya Customer Service Profile"
 }
+
+module "security_profile" {
+  source = "../../modules/security-profile"
+
+  instance_arn          = module.connect_instance.instance_arn
+  security_profile_name = "Kaivalya Connect Admin"
+}
+
+module "connect_user" {
+  source = "../../modules/connect-user"
+
+  instance_arn         = module.connect_instance.instance_arn
+  username             = var.connect_admin_username
+  password             = var.connect_admin_password
+  routing_profile_arn  = module.queue_routing.routing_profile_arn
+  security_profile_arn = module.security_profile.security_profile_arn
+
+  first_name  = var.connect_admin_first_name
+  last_name   = var.connect_admin_last_name
+  email       = var.connect_admin_email
+  environment = var.environment
+}

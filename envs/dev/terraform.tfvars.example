@@ -1,3 +1,8 @@
 aws_region             = "ca-central-1"
 environment            = "dev"
 connect_instance_alias = "kaivalya-connect-dev"
+connect_admin_username   = "kaivalya.admin"
+connect_admin_password   = "CHANGE-ME"
+connect_admin_first_name = "FirstName"
+connect_admin_last_name  = "LastName"
+connect_admin_email      = "example@example.com"
