@@ -42,3 +42,10 @@ module "connect_user" {
   email       = var.connect_admin_email
   environment = var.environment
 }
+
+module "storage" {
+  source = "../../modules/storage"
+
+  bucket_name = "kaivalya-connect-storage-2026"
+  environment = var.environment
+}
