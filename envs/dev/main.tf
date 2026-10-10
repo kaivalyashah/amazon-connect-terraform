@@ -49,10 +49,20 @@ module "storage" {
   bucket_name = "kaivalya-connect-storage-2026"
   environment = var.environment
 }
+
 module "lambda" {
   source = "../../modules/lambda"
 
   function_name = "kaivalya-connect-handler"
   environment   = var.environment
   handler_path  = "${path.root}/../../lambda/handler.py"
+}
+
+module "contact_flow" {
+  source = "../../modules/contact-flow"
+
+  instance_arn = module.connect_instance.instance_arn
+  lambda_arn   = module.lambda.function_arn
+  flow_name    = "Kaivalya Lambda Contact Flow"
+  environment  = var.environment
 }
